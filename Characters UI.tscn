@@ -1,0 +1,1457 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://assets/UI/icon_return.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/icon_right.png" type="Texture" id=2]
+[ext_resource path="res://Characters UI.gd" type="Script" id=3]
+[ext_resource path="res://Background.gd" type="Script" id=4]
+[ext_resource path="res://assets/UI/characters/Male1.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/characters/Male2.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/characters/m1su.png" type="Texture" id=7]
+[ext_resource path="res://assets/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/UI/characters/Female2.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/characters/Female1.png" type="Texture" id=10]
+[ext_resource path="res://assets/UI/characters/defaultFemalePres.png" type="Texture" id=11]
+[ext_resource path="res://assets/UI/characters/defaultMalePres.png" type="Texture" id=12]
+[ext_resource path="res://assets/UI/icon_left.png" type="Texture" id=13]
+[ext_resource path="res://m1su.gd" type="Script" id=14]
+[ext_resource path="res://male1.gd" type="Script" id=15]
+[ext_resource path="res://male2.gd" type="Script" id=16]
+[ext_resource path="res://female1.gd" type="Script" id=17]
+[ext_resource path="res://female2.gd" type="Script" id=18]
+
+[sub_resource type="Animation" id=1]
+length = 27.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6.1, 9, 12, 15, 18, 21.2, 24.2, 27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.258824, 0.776471, 0.8, 1 ), Color( 0.239216, 0.439216, 0.721569, 1 ), Color( 0.541176, 0.0862745, 0.333333, 1 ), Color( 0.341176, 0.180392, 0.654902, 1 ), Color( 0.247059, 0.180392, 0.654902, 1 ), Color( 0.564706, 0.137255, 0.137255, 1 ), Color( 0.360784, 0.121569, 0.411765, 1 ), Color( 0.419608, 0.180392, 0.654902, 1 ), Color( 0.576471, 0.290196, 0.0352941, 1 ), Color( 0.258824, 0.776471, 0.8, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "PanelSwitch1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 176 ), Vector2( -175, 176 ), Vector2( -350, 176 ), Vector2( -525, 176 ), Vector2( -700, 176 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 700, 176 ), Vector2( 525, 176 ), Vector2( 350, 176 ), Vector2( 170, 176 ), Vector2( 0, 176 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "PanelSwitchBack1"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -700, 176 ), Vector2( -525, 176 ), Vector2( -350, 176 ), Vector2( -170, 176 ), Vector2( 0, 176 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 176 ), Vector2( 170, 176 ), Vector2( 350, 176 ), Vector2( 525, 176 ), Vector2( 700, 176 ) ]
+}
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 192, 122 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 192, 122 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 192, 122 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 192, 122 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.278431, 0.156863, 0.156863, 0.784314 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing_size = 2.0
+
+[sub_resource type="DynamicFont" id=11]
+size = 8
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0.647059 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 10
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 7
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0, 0, 0.647059 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 10
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=20]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=21]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=22]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=23]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=24]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxTexture" id=25]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 192, 307 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.278431, 0.156863, 0.156863, 0.784314 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing_size = 2.0
+
+[sub_resource type="DynamicFont" id=27]
+size = 20
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="Animation" id=32]
+resource_name = "PanelOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 193 ), Vector2( -400, 193 ), Vector2( -300, 193 ), Vector2( -200, 193 ), Vector2( -100, 193 ), Vector2( 11.7, 193 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.7, 193 ), Vector2( -100, 193 ), Vector2( -200, 193 ), Vector2( -300, 193 ), Vector2( -400, 193 ), Vector2( -500, 193 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "PanelOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 193 ), Vector2( -400, 193 ), Vector2( -300, 193 ), Vector2( -200, 193 ), Vector2( -100, 193 ), Vector2( 11.7, 193 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.7, 193 ), Vector2( -100, 193 ), Vector2( -200, 193 ), Vector2( -300, 193 ), Vector2( -400, 193 ), Vector2( -500, 193 ) ]
+}
+
+[node name="CharactersSpatial" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="MainUIControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -223.393, 352.835 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="MainUIControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = -1.0
+color = Color( 0.258824, 0.776471, 0.8, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainUIControl"]
+anims/Gradient = SubResource( 1 )
+anims/PanelSwitch1 = SubResource( 2 )
+anims/PanelSwitchBack1 = SubResource( 3 )
+
+[node name="Button" type="Button" parent="MainUIControl"]
+margin_left = 11.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 46.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title - RichTextLabel" type="RichTextLabel" parent="MainUIControl"]
+anchor_right = 1.0
+anchor_bottom = 0.212
+margin_left = 2.25995
+margin_top = 60.4762
+margin_right = 1.25995
+margin_bottom = 60.7962
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center] CHARACTER SELECTION[/center]"
+text = " CHARACTER SELECTION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MainUIControl"]
+anchor_top = 0.275
+anchor_right = 1.0
+anchor_bottom = 0.916
+margin_right = 0.998047
+margin_bottom = -0.240051
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Panel" parent="MainUIControl/Panel"]
+anchor_left = 0.042
+anchor_top = 0.058
+anchor_right = 0.302
+anchor_bottom = 0.5
+margin_left = -0.162
+margin_top = -0.0700016
+margin_right = -0.0220032
+margin_bottom = -2.5
+custom_styles/panel = SubResource( 10 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel/m1su"]
+show_behind_parent = true
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel/m1su"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359993
+margin_top = 0.00400162
+margin_right = -0.0360031
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/m1su/Panel1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = 34.0
+margin_bottom = 9.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]M1SU[/center]"
+text = "M1SU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MainUIControl/Panel/m1su"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/m1su/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -9.0
+margin_right = 44.0
+margin_bottom = 8.0
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]LOCKED[/center]"
+text = "LOCKED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel/m1su"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.9999
+margin_top = 10.605
+margin_right = 45.0001
+margin_bottom = 43.605
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/m1su/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -11.5
+margin_right = 44.0
+margin_bottom = 13.5
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]UNLOCK FOR 9500 POINTS[/center]"
+text = "UNLOCK FOR 9500 POINTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MainUIControl/Panel/m1su"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/m1su/Panel3"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="male1" type="Panel" parent="MainUIControl/Panel"]
+anchor_left = 0.369
+anchor_top = 0.058
+anchor_right = 0.63
+anchor_bottom = 0.494
+margin_left = -0.209015
+margin_top = -0.0700016
+margin_right = -0.16803
+margin_bottom = -0.0100098
+custom_styles/panel = SubResource( 10 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel/male1"]
+show_behind_parent = true
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel/male1"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359993
+margin_top = 0.00400162
+margin_right = -0.0360031
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male1/Panel1"]
+anchor_left = 0.042
+anchor_top = 0.232
+anchor_right = 0.958
+anchor_bottom = 0.845
+margin_left = -0.0135398
+margin_top = 8.39233e-05
+margin_right = 0.0135345
+margin_bottom = -0.0113029
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]STORM[/center]"
+text = "STORM"
+
+[node name="Panel" type="Panel" parent="MainUIControl/Panel/male1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male1/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -9.0
+margin_right = 44.0
+margin_bottom = 8.0
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]LOCKED[/center]"
+text = "LOCKED"
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel/male1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.9999
+margin_top = 10.605
+margin_right = 45.0001
+margin_bottom = 43.605
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male1/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -11.5
+margin_right = 44.0
+margin_bottom = 13.5
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]UNLOCK FOR 5500 POINTS[/center]"
+text = "UNLOCK FOR 5500 POINTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MainUIControl/Panel/male1"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male1/Panel3"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="male2" type="Panel" parent="MainUIControl/Panel"]
+anchor_left = 0.704
+anchor_top = 0.058
+anchor_right = 0.963
+anchor_bottom = 0.494
+margin_left = -0.751007
+margin_top = -0.0700016
+margin_right = 0.0109558
+margin_bottom = -0.0100098
+custom_styles/panel = SubResource( 10 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel/male2"]
+show_behind_parent = true
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel/male2"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359936
+margin_top = 0.00400162
+margin_right = -0.0359955
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male2/Panel1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = 34.0
+margin_bottom = 9.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]RUBEN[/center]"
+text = "RUBEN"
+
+[node name="Panel" type="Panel" parent="MainUIControl/Panel/male2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male2/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -9.0
+margin_right = 44.0
+margin_bottom = 8.0
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]LOCKED[/center]"
+text = "LOCKED"
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel/male2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.9999
+margin_top = 10.605
+margin_right = 45.0001
+margin_bottom = 43.605
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male2/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -11.5
+margin_right = 44.0
+margin_bottom = 13.5
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]UNLOCK FOR 7500 POINTS[/center]"
+text = "UNLOCK FOR 7500 POINTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MainUIControl/Panel/male2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/male2/Panel3"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="female1" type="Panel" parent="MainUIControl/Panel"]
+anchor_left = 0.042
+anchor_top = 0.564
+anchor_right = 0.303
+anchor_bottom = 1.0
+margin_left = -0.162001
+margin_top = -0.0600281
+margin_right = -0.122002
+margin_bottom = -3.05176e-05
+custom_styles/panel = SubResource( 10 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel/female1"]
+show_behind_parent = true
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 10 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel/female1"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359993
+margin_top = 0.00400162
+margin_right = -0.0360031
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female1/Panel1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = 34.0
+margin_bottom = 9.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]shadow[/center]"
+text = "shadow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MainUIControl/Panel/female1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female1/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -9.0
+margin_right = 44.0
+margin_bottom = 8.0
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]LOCKED[/center]"
+text = "LOCKED"
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel/female1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.9999
+margin_top = 10.605
+margin_right = 45.0001
+margin_bottom = 43.605
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female1/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -11.5
+margin_right = 44.0
+margin_bottom = 13.5
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]UNLOCK FOR 8000 POINTS[/center]"
+text = "UNLOCK FOR 8000 POINTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MainUIControl/Panel/female1"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female1/Panel3"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="female2" type="Panel" parent="MainUIControl/Panel"]
+anchor_left = 0.369
+anchor_top = 0.564
+anchor_right = 0.63
+anchor_bottom = 1.0
+margin_left = -0.209015
+margin_top = -0.0600281
+margin_right = -0.16803
+margin_bottom = -3.05176e-05
+rect_pivot_offset = Vector2( -621.001, 178.82 )
+custom_styles/panel = SubResource( 10 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel/female2"]
+show_behind_parent = true
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 9 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel/female2"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359993
+margin_top = 0.00400162
+margin_right = -0.0360031
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female2/Panel1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = 34.0
+margin_bottom = 9.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]PHANTOM[/center]"
+text = "PHANTOM"
+
+[node name="Panel" type="Panel" parent="MainUIControl/Panel/female2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female2/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -43.0
+margin_top = -9.0
+margin_right = 44.0
+margin_bottom = 8.0
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]LOCKED[/center]"
+text = "LOCKED"
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel/female2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.9999
+margin_top = 10.605
+margin_right = 45.0001
+margin_bottom = 43.605
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female2/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -11.5
+margin_right = 44.0
+margin_bottom = 13.5
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]UNLOCK FOR 6500 POINTS[/center]"
+text = "UNLOCK FOR 6500 POINTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MainUIControl/Panel/female2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel/female2/Panel3"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="MainUIControl"]
+anchor_top = 0.275
+anchor_right = 1.0
+anchor_bottom = 0.916
+margin_left = 700.0
+margin_right = 701.0
+margin_bottom = -0.240051
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="defaultMale" type="Panel" parent="MainUIControl/Panel2"]
+anchor_left = 0.042
+anchor_top = 0.058
+anchor_right = 0.302
+anchor_bottom = 0.5
+margin_left = -0.162
+margin_top = -0.0700016
+margin_right = -0.0220032
+margin_bottom = -2.5
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel2/defaultMale"]
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 12 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel2/defaultMale"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359993
+margin_top = 0.00400162
+margin_right = -0.0360031
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel2/defaultMale/Panel1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = 34.0
+margin_bottom = 9.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]NICK[/center]"
+text = "NICK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel2/defaultMale"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel2/defaultMale/Panel2"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="defaultFemale" type="Panel" parent="MainUIControl/Panel2"]
+anchor_left = 0.369
+anchor_top = 0.058
+anchor_right = 0.63
+anchor_bottom = 0.494
+margin_left = -0.209015
+margin_top = -0.0700016
+margin_right = -0.16803
+margin_bottom = -0.0100098
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="m1su" type="Sprite" parent="MainUIControl/Panel2/defaultFemale"]
+position = Vector2( 55.025, 90.1684 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+
+[node name="Panel1" type="Panel" parent="MainUIControl/Panel2/defaultFemale"]
+anchor_left = 0.106
+anchor_top = -0.118
+anchor_right = 0.894
+anchor_bottom = 0.028
+margin_left = 0.0359993
+margin_top = 0.00400162
+margin_right = -0.0360031
+margin_bottom = 0.0159998
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel2/defaultFemale/Panel1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -7.0
+margin_right = 34.0
+margin_bottom = 9.0
+custom_fonts/normal_font = SubResource( 11 )
+bbcode_enabled = true
+bbcode_text = "[center]SIA[/center]"
+text = "SIA"
+
+[node name="Panel2" type="Panel" parent="MainUIControl/Panel2/defaultFemale"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -10.0
+margin_right = 45.0
+margin_bottom = 10.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUIControl/Panel2/defaultFemale/Panel2"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 18.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]SELECT[/center]"
+text = "SELECT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="MainUIControl"]
+margin_left = 250.0
+margin_top = 475.0
+margin_right = 356.0
+margin_bottom = 532.0
+custom_styles/panel = SubResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="MainUIControl/Panel3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 40.0
+margin_bottom = 17.5
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MainUIControl/Panel3"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -41.5873
+margin_top = -17.5
+margin_right = -1.58734
+margin_bottom = 17.5
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/normal = SubResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="MainUIControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -680.0
+margin_top = -127.0
+margin_right = -342.994
+margin_bottom = 127.0
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainUIControl/Panel4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="MainUIControl/Panel4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.504
+margin_top = -92.0
+margin_right = 157.496
+margin_bottom = 51.0
+custom_fonts/normal_font = SubResource( 27 )
+bbcode_enabled = true
+bbcode_text = "[center]ARE YOU SURE THAT YOU WANT TO UNLOCK <NULL> SKIN?"
+text = "ARE YOU SURE THAT YOU WANT TO UNLOCK <NULL> SKIN?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MainUIControl/Panel4"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 30 )
+custom_styles/pressed = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="MainUIControl/Panel4"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 63.0
+margin_right = -20.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/normal = SubResource( 29 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainUIControl/Panel4"]
+anims/PanelOut = SubResource( 32 )
+anims/PanelSlide = SubResource( 33 )
+
+[node name="Panel5" type="Panel" parent="MainUIControl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -680.0
+margin_top = -127.0
+margin_right = -342.994
+margin_bottom = 127.0
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainUIControl/Panel5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="MainUIControl/Panel5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.503
+margin_top = -106.0
+margin_right = 157.497
+margin_bottom = 51.0
+custom_fonts/normal_font = SubResource( 27 )
+bbcode_enabled = true
+bbcode_text = "[center]YOU DON'T HAVE ENOUGH POINTS TO UNLOCK THE SKIN. DO YOU WANT TO WATCH AN AD FOR +50 POINTS?"
+text = "YOU DON'T HAVE ENOUGH POINTS TO UNLOCK THE SKIN. DO YOU WANT TO WATCH AN AD FOR +50 POINTS?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MainUIControl/Panel5"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 30 )
+custom_styles/pressed = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="MainUIControl/Panel5"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 63.0
+margin_right = -20.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/normal = SubResource( 29 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainUIControl/Panel5"]
+anims/PanelOut = SubResource( 34 )
+anims/PanelSlide = SubResource( 35 )
+
+[connection signal="pressed" from="MainUIControl/Button" to="." method="_on_Button_pressed"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/m1su/Panel2/RichTextLabel" to="." method="_on_BuyM1SU_mouse_entered"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/m1su/Panel3/RichTextLabel" to="." method="_on_M1SUSelect_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel/m1su/Panel3/RichTextLabel" to="." method="_on_M1SUSelect_mouse_exited"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/male1/Panel2/RichTextLabel" to="MainUIControl/Panel/male1" method="_on_Buy_mouse_entered"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/male1/Panel3/RichTextLabel" to="MainUIControl/Panel/male1" method="_on_select_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel/male1/Panel3/RichTextLabel" to="MainUIControl/Panel/male1" method="_on_select_mouse_exited"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/male2/Panel2/RichTextLabel" to="MainUIControl/Panel/male2" method="_on_Buy_mouse_entered"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/male2/Panel3/RichTextLabel" to="MainUIControl/Panel/male2" method="_on_select_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel/male2/Panel3/RichTextLabel" to="MainUIControl/Panel/male2" method="_on_select_mouse_exited"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/female1/Panel2/RichTextLabel" to="MainUIControl/Panel/female1" method="_on_Buy_mouse_entered"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/female1/Panel3/RichTextLabel" to="MainUIControl/Panel/female1" method="_on_select_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel/female1/Panel3/RichTextLabel" to="MainUIControl/Panel/female1" method="_on_select_mouse_exited"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/female2/Panel2/RichTextLabel" to="MainUIControl/Panel/female2" method="_on_Buy_mouse_entered"]
+[connection signal="mouse_entered" from="MainUIControl/Panel/female2/Panel3/RichTextLabel" to="MainUIControl/Panel/female2" method="_on_select_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel/female2/Panel3/RichTextLabel" to="MainUIControl/Panel/female2" method="_on_select_mouse_exited"]
+[connection signal="mouse_entered" from="MainUIControl/Panel2/defaultMale/Panel2/RichTextLabel" to="." method="_on_RichTextLabel_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel2/defaultMale/Panel2/RichTextLabel" to="." method="_on_RichTextLabel_mouse_exited"]
+[connection signal="mouse_entered" from="MainUIControl/Panel2/defaultFemale/Panel2/RichTextLabel" to="." method="_on_RichTextLabel2_mouse_entered"]
+[connection signal="mouse_exited" from="MainUIControl/Panel2/defaultFemale/Panel2/RichTextLabel" to="." method="_on_RichTextLabel2_mouse_exited"]
+[connection signal="pressed" from="MainUIControl/Panel3/Button2" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MainUIControl/Panel3/Button" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="MainUIControl/Panel4/Button" to="." method="_on_unlockCharacter_pressed"]
+[connection signal="pressed" from="MainUIControl/Panel4/Button2" to="." method="_on_not_unlockCharacter_pressed"]
+[connection signal="pressed" from="MainUIControl/Panel5/Button" to="." method="_on_ad_rewarded_pressed"]
+[connection signal="pressed" from="MainUIControl/Panel5/Button2" to="." method="_on_ad_rewarded_no_pressed"]

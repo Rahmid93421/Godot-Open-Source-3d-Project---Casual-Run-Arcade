@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/road-straight-house-2-low.obj-16bce33382e126059e43f3ce16671f50.mesh"
+
+[deps]
+
+files=[ "res://.import/road-straight-house-2-low.obj-16bce33382e126059e43f3ce16671f50.mesh" ]
+
+source_file="res://assets/Models/road-straight-house-2-low.obj"
+dest_files=[ "res://.import/road-straight-house-2-low.obj-16bce33382e126059e43f3ce16671f50.mesh", "res://.import/road-straight-house-2-low.obj-16bce33382e126059e43f3ce16671f50.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

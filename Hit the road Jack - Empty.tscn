@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Road#1 - NoPoints.gd" type="Script" id=2]
+[ext_resource path="res://assets/Models/textures/buildings-houses_v1.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/Models/road-straight-house-1-low.obj" type="ArrayMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[node name="Hit the road Jack" type="Spatial"]
+
+[node name="Road#1" type="StaticBody" parent="."]
+script = ExtResource( 2 )
+
+[node name="road-straight-house-1-low" type="MeshInstance" parent="Road#1"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.781224, -0.545108, 0.304215, -0.0163145, 0.50499, 0.862971, -0.624038, 0.66921, -0.403403, 0, 24.3467, 0 )
+visible = false
+
+[node name="Object" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.272 )
+
+[node name="Empty" type="Node" parent="."]

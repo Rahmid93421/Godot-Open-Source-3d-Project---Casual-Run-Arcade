@@ -1,0 +1,1060 @@
+[gd_scene load_steps=50 format=2]
+
+[ext_resource path="res://Lives - Panel.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/purpleRectTapped.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/purpleRectNormal.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/anim_coin_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/UI/icon_plus.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/icon_heart_on.png" type="Texture" id=7]
+[ext_resource path="res://Menu - UI.gd" type="Script" id=8]
+[ext_resource path="res://assets/UI/characters/defaultFemalePres.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/characters/defaultMalePres.png" type="Texture" id=10]
+[ext_resource path="res://CoinsBar - Panel.gd" type="Script" id=11]
+[ext_resource path="res://assets/UI/greyRectNormal.png" type="Texture" id=12]
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 359, 162 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 358, 152 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 359, 162 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 359, 162 )
+modulate_color = Color( 0.47451, 0.470588, 0.470588, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 359, 162 )
+modulate_color = Color( 0.47451, 0.470588, 0.470588, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0.647059 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 14
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 48
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.6, 0.6, 0.552941 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 10
+
+[sub_resource type="DynamicFont" id=12]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=13]
+resource_name = "heart"
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Heart - Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Heart - Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.216615, 0.222389 ), Vector2( 0.267, 0.272 ), Vector2( 0.217, 0.222 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "coins"
+length = 2.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Coin - Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 30.0, 60.0, 90.0, 120.0, 150.0, 180.0, 210.0, 240.0, 270.0, 300.0, 330.0, 360.0 ]
+}
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.278431, 0.156863, 0.156863, 0.784314 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing_size = 2.0
+
+[sub_resource type="DynamicFont" id=16]
+size = 20
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="Animation" id=21]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12, 193 ), Vector2( 100, 193 ), Vector2( 200, 193 ), Vector2( 300, 193 ), Vector2( 400, 193 ), Vector2( 500, 193 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 193 ), Vector2( 400, 193 ), Vector2( 300, 193 ), Vector2( 200, 193 ), Vector2( 100, 193 ), Vector2( 12, 193 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12, 193 ), Vector2( -100, 193 ), Vector2( -200, 193 ), Vector2( -300, 193 ), Vector2( -400, 193 ), Vector2( -500, 193 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 193 ), Vector2( -400, 193 ), Vector2( -300, 193 ), Vector2( -200, 193 ), Vector2( -100, 193 ), Vector2( 12, 193 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12, 193 ), Vector2( 12, 93 ), Vector2( 12, -7 ), Vector2( 12, -107 ), Vector2( 12, -207 ), Vector2( 12, -650 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12, -650 ), Vector2( 12, -207 ), Vector2( 12, -107 ), Vector2( 12, -7 ), Vector2( 12, 93 ), Vector2( 12, 193 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12, 100 ), Vector2( 12, 200 ), Vector2( 12, 300 ), Vector2( 12, 400 ), Vector2( 12, 500 ), Vector2( 12, 600 ), Vector2( 12, 700 ), Vector2( 12, 800 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 12, 800 ), Vector2( 12, 700 ), Vector2( 12, 600 ), Vector2( 12, 500 ), Vector2( 12, 400 ), Vector2( 12, 300 ), Vector2( 12, 200 ), Vector2( 12, 100 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.278431, 0.156863, 0.156863, 0.784314 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing_size = 2.0
+
+[sub_resource type="DynamicFont" id=31]
+size = 20
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 0.184314, 0.180392, 0.180392, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.152941, 0.00392157, 0.00392157, 1 )
+
+[sub_resource type="Animation" id=36]
+resource_name = "PanelOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 193 ), Vector2( -400, 193 ), Vector2( -300, 193 ), Vector2( -200, 193 ), Vector2( -100, 193 ), Vector2( 11.7, 193 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.7, 193 ), Vector2( -100, 193 ), Vector2( -200, 193 ), Vector2( -300, 193 ), Vector2( -400, 193 ), Vector2( -500, 193 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 27.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main Node - Control/Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 6.1, 9.2, 12.1, 15.1, 18.2, 21.1, 24.2, 27.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.14902, 0.415686, 0.431373, 1 ), Color( 0.239216, 0.439216, 0.721569, 1 ), Color( 0.541176, 0.0862745, 0.333333, 1 ), Color( 0.341176, 0.180392, 0.654902, 1 ), Color( 0.247059, 0.180392, 0.654902, 1 ), Color( 0.564706, 0.137255, 0.137255, 1 ), Color( 0.360784, 0.121569, 0.411765, 1 ), Color( 0.419608, 0.180392, 0.654902, 1 ), Color( 0.576471, 0.290196, 0.0352941, 1 ), Color( 0.14902, 0.415686, 0.431373, 1 ) ]
+}
+
+[node name="Menu - UI" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="Main Node - Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Main Node - Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.14902, 0.415686, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play-BTN" type="Button" parent="Main Node - Control"]
+anchor_left = 0.239
+anchor_top = 0.459
+anchor_right = 0.761
+anchor_bottom = 0.559
+margin_left = -0.0400009
+margin_top = 0.23999
+margin_right = 0.039978
+margin_bottom = 0.23999
+custom_colors/font_color_pressed = Color( 0.243137, 0.235294, 0.235294, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Characters-BTN" type="Button" parent="Main Node - Control"]
+anchor_left = 0.239
+anchor_top = 0.586
+anchor_right = 0.761
+anchor_bottom = 0.686
+margin_left = -0.0400009
+margin_top = -0.0400085
+margin_right = 0.039978
+margin_bottom = -0.0400391
+custom_colors/font_color_pressed = Color( 0.243137, 0.235294, 0.235294, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "CHARACTERS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrades-BTN" type="Button" parent="Main Node - Control"]
+anchor_left = 0.239
+anchor_top = 0.712
+anchor_right = 0.761
+anchor_bottom = 0.812
+margin_left = -0.0400009
+margin_top = 0.320007
+margin_right = 0.039978
+margin_bottom = 0.319946
+rect_pivot_offset = Vector2( -474.438, -446.819 )
+custom_colors/font_color_pressed = Color( 0.243137, 0.235294, 0.235294, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+disabled = true
+text = "UPGRADES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Main Node - Control/Upgrades-BTN"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.0
+margin_top = -15.0
+margin_right = 93.0
+margin_bottom = 16.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Node - Control/Upgrades-BTN/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.0
+margin_top = -12.5
+margin_right = 50.0
+margin_bottom = 13.5
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]LOCKED[/center]"
+text = "LOCKED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore - RichTextLabel" type="RichTextLabel" parent="Main Node - Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -120.0
+margin_right = 94.0
+margin_bottom = -41.0
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TItle - RichTextLabel" type="RichTextLabel" parent="Main Node - Control"]
+anchor_right = 1.0
+anchor_bottom = 0.212
+margin_left = 1.0
+margin_bottom = 0.319992
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]CASUAL RUN ARCADE[/center]"
+text = "CASUAL RUN ARCADE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives - Panel" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.611
+anchor_top = 0.251
+anchor_right = 0.944
+anchor_bottom = 0.313
+margin_left = 0.0399933
+margin_top = -0.0910187
+margin_right = 0.160156
+margin_bottom = 0.229004
+custom_styles/panel = SubResource( 11 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart - Sprite" type="Sprite" parent="Main Node - Control/Lives - Panel"]
+position = Vector2( 6.28528, 7.77802 )
+scale = Vector2( 0.216615, 0.222389 )
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="Plus - Sprite" type="Sprite" parent="Main Node - Control/Lives - Panel/Heart - Sprite"]
+position = Vector2( 73.3067, -64.9584 )
+scale = Vector2( 0.550678, 0.434772 )
+texture = ExtResource( 6 )
+
+[node name="Value - Label" type="Label" parent="Main Node - Control/Lives - Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -13.0
+margin_right = 56.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 12 )
+text = "9999999"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/Lives - Panel"]
+anims/heart = SubResource( 13 )
+
+[node name="CoinsBar - Panel" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.069
+anchor_top = 0.251
+anchor_right = 0.403
+anchor_bottom = 0.313
+margin_left = 0.159998
+margin_top = -0.0910187
+margin_right = -0.0798187
+margin_bottom = 0.229004
+custom_styles/panel = SubResource( 11 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coin - Sprite" type="Sprite" parent="Main Node - Control/CoinsBar - Panel"]
+position = Vector2( 4.16391, 7.06143 )
+scale = Vector2( 0.216615, 0.162754 )
+texture = ExtResource( 4 )
+flip_h = true
+
+[node name="Plus - Sprite" type="Sprite" parent="Main Node - Control/CoinsBar - Panel"]
+position = Vector2( 19.1156, -7.5744 )
+scale = Vector2( 0.118381, 0.0951811 )
+texture = ExtResource( 6 )
+
+[node name="Value - Sprite" type="Label" parent="Main Node - Control/CoinsBar - Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -13.0
+margin_right = 56.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 12 )
+text = "9999999"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/CoinsBar - Panel"]
+anims/coins = SubResource( 14 )
+
+[node name="Panel" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 320.0
+margin_top = -127.0
+margin_right = 657.007
+margin_bottom = 127.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Main Node - Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="Main Node - Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.5
+margin_top = -114.0
+margin_right = 157.5
+margin_bottom = 48.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]YOU CAN EXCHANGE 1000 COINS FOR +1 LIFE or you can watch an ad an support the developer to do more things![/center]"
+text = "YOU CAN EXCHANGE 1000 COINS FOR +1 LIFE or you can watch an ad an support the developer to do more things!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Main Node - Control/Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "AD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Main Node - Control/Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 63.0
+margin_right = -20.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "1000C"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/Panel"]
+anims/PanelOut = SubResource( 21 )
+anims/PanelSlide = SubResource( 22 )
+
+[node name="Panel2" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -680.0
+margin_top = -127.0
+margin_right = -342.993
+margin_bottom = 127.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Main Node - Control/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="Main Node - Control/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.5
+margin_top = -114.0
+margin_right = 157.5
+margin_bottom = 48.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]DO YOU WANT TO WATCH AN AD FOR +50 COINS?
+Also helps the developer to do more things.[/center]"
+text = "DO YOU WANT TO WATCH AN AD FOR +50 COINS?
+Also helps the developer to do more things."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Main Node - Control/Panel2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Main Node - Control/Panel2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 63.0
+margin_right = -20.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/Panel2"]
+anims/PanelOut = SubResource( 23 )
+anims/PanelSlide = SubResource( 24 )
+
+[node name="Panel3" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -970.0
+margin_right = 169.007
+margin_bottom = -716.001
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Main Node - Control/Panel3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="Main Node - Control/Panel3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.5
+margin_top = -114.0
+margin_right = 157.5
+margin_bottom = 48.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]YOU DON'T HAVE ENOUGH LIVES TO PLAY AGAIN. DO YOU WANT TO WATCH AN AD FOR +1 LIFE? [/center]"
+text = "YOU DON'T HAVE ENOUGH LIVES TO PLAY AGAIN. DO YOU WANT TO WATCH AN AD FOR +1 LIFE? "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Main Node - Control/Panel3"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Main Node - Control/Panel3"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 63.0
+margin_right = -20.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/Panel3"]
+anims/PanelOut = SubResource( 25 )
+anims/PanelSlide = SubResource( 26 )
+
+[node name="Panel4" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = 480.0
+margin_right = 169.007
+margin_bottom = 930.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Main Node - Control/Panel4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="Main Node - Control/Panel4"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -157.0
+margin_top = 20.0
+margin_right = 156.999
+margin_bottom = 182.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]Hello there and welcome to Casual Run! Please choose your gender[/center]"
+text = "Hello there and welcome to Casual Run! Please choose your gender"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Main Node - Control/Panel4"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -60.0
+margin_right = 140.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "MALE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="defaultMalePres" type="Sprite" parent="Main Node - Control/Panel4/Button"]
+position = Vector2( 65, -135 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+
+[node name="Button2" type="Button" parent="Main Node - Control/Panel4"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -140.007
+margin_top = -60.0
+margin_right = -20.007
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "FEMALE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="defaultFemalePres" type="Sprite" parent="Main Node - Control/Panel4/Button2"]
+position = Vector2( 65, -135 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/Panel4"]
+anims/PanelOut = SubResource( 27 )
+anims/PanelSlide = SubResource( 28 )
+
+[node name="Panel5" type="Panel" parent="Main Node - Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -783.0
+margin_top = -399.0
+margin_right = -445.994
+margin_bottom = -145.0
+custom_styles/panel = SubResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Main Node - Control/Panel5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.5
+margin_top = -290.0
+margin_right = 193.5
+margin_bottom = 290.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextAd" type="RichTextLabel" parent="Main Node - Control/Panel5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -156.503
+margin_top = -106.0
+margin_right = 157.497
+margin_bottom = 51.0
+custom_fonts/normal_font = SubResource( 31 )
+bbcode_enabled = true
+bbcode_text = "[center]YOU DON'T HAVE ENOUGH COINS. DO YOU WANT TO WATCH AN AD FOR +50 POINTS?"
+text = "YOU DON'T HAVE ENOUGH COINS. DO YOU WANT TO WATCH AN AD FOR +50 POINTS?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Main Node - Control/Panel5"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 20.0
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 34 )
+custom_styles/pressed = SubResource( 32 )
+custom_styles/normal = SubResource( 33 )
+text = "YES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Main Node - Control/Panel5"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = 63.0
+margin_right = -20.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 34 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/normal = SubResource( 33 )
+text = "NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Node - Control/Panel5"]
+anims/PanelOut = SubResource( 36 )
+anims/PanelSlide = SubResource( 37 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Node - Control"]
+anchor_top = 0.823
+anchor_right = 1.0
+anchor_bottom = 0.931
+margin_left = 1.0
+margin_top = 0.279968
+margin_bottom = 0.159973
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Gradient = SubResource( 29 )
+
+[connection signal="pressed" from="Main Node - Control/Play-BTN" to="." method="_on_PlayBTN_pressed"]
+[connection signal="pressed" from="Main Node - Control/Characters-BTN" to="." method="_on_CharactersBTN_pressed"]
+[connection signal="mouse_entered" from="Main Node - Control/Lives - Panel" to="." method="_on_Lives__Panel_mouse_entered"]
+[connection signal="mouse_entered" from="Main Node - Control/CoinsBar - Panel" to="." method="_on_CoinsBar__Panel_mouse_entered"]
+[connection signal="pressed" from="Main Node - Control/Panel/Button" to="." method="_on_show_AdRequest_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel/Button2" to="." method="_on_close_AdRequest_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel2/Button" to="." method="_on_show_AdRequest2_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel2/Button2" to="." method="_on_close_AdRequest2_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel3/Button" to="." method="_on_show_AdRequest3_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel3/Button2" to="." method="_on_close_AdRequest3_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel4/Button" to="." method="_on_Button_Male_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel4/Button2" to="." method="_on_Button_Female_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel5/Button" to="." method="_on_ad_rewarded_pressed"]
+[connection signal="pressed" from="Main Node - Control/Panel5/Button2" to="." method="_on_ad_rewarded_no_pressed"]

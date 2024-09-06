@@ -1,0 +1,164 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://RigidBody.gd" type="Script" id=2]
+[ext_resource path="res://assets/Models/maleNewRun.glb" type="PackedScene" id=3]
+[ext_resource path="res://Camera.gd" type="Script" id=4]
+[ext_resource path="res://ActualGame.gd" type="Script" id=5]
+[ext_resource path="res://assets/Models/newFemaleCh.glb" type="PackedScene" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.38575, 0.560107, 0.239072 )
+
+[sub_resource type="ProceduralSky" id=12]
+sky_top_color = Color( 1, 1, 1, 1 )
+sky_energy = 5.0
+ground_energy = 2.0
+sun_energy = 5.0
+texture_size = 0
+
+[sub_resource type="Environment" id=13]
+background_mode = 2
+background_sky = SubResource( 12 )
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 1.04595, 0.104729, 1.18485 )
+
+[node name="ActualGame" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -178.0
+margin_top = -318.0
+margin_bottom = 314.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -318.0
+margin_right = 172.0
+margin_bottom = 316.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore - RichTextLabel" type="RichTextLabel" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -94.0
+margin_top = 38.0
+margin_right = 99.0
+margin_bottom = 117.0
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedText" type="RichTextLabel" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -179.0
+margin_top = -125.0
+margin_right = 179.0
+margin_bottom = -88.0
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17136 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 0.65, -1.49012e-08, 1.89245e-06, -4.76837e-07, 0.649999, -4.76837e-07, -1.04308e-07, -7.45058e-08, 0.650001, 0.0117445, 1.38922, -1.44069 )
+shape = SubResource( 11 )
+
+[node name="Camera" type="Camera" parent="KinematicBody"]
+transform = Transform( 0.5, 0.433013, -0.75, 0, 0.866025, 0.5, 0.866025, -0.25, 0.433013, -9.052, 8, 5 )
+environment = SubResource( 13 )
+fov = 30.0
+script = ExtResource( 4 )
+
+[node name="newFemaleCh" parent="KinematicBody" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.1, -1.441 )
+visible = false
+
+[node name="maleNewRun" parent="KinematicBody" instance=ExtResource( 3 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.1, -1.441 )
+visible = false
+
+[node name="Ground" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.17136 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.992561, 0, 0.9, -1.41534 )
+shape = SubResource( 14 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.823235, 0.264329, -0.502408, 0.0643541, 0.835831, 0.545201, 0.564041, -0.481161, 0.671075, -1.05203, 2.35962, 2.0556 )
+light_energy = 0.15
+
+[connection signal="pressed" from="Control/Button" to="KinematicBody/Camera" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="KinematicBody/Camera" method="_on_Button2_pressed"]

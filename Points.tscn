@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Points.gd" type="Script" id=2]
+[ext_resource path="res://assets/Models/newPoint.glb" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.71887, 2.75208, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "PointRotation"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 30, 0 ), Vector3( 0, 60, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 120, 0 ), Vector3( 0, 150, 0 ), Vector3( 0, 180, 0 ) ]
+}
+
+[node name="Points" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="PointArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0616, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PointArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.262437, 0.288079, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PointArea"]
+anims/PointRotation = SubResource( 2 )
+
+[node name="newPoint" parent="PointArea" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.789175, 0.376213, 0.485455, -0.607171, 0.596889, 0.524469, -0.0924506, -0.708652, 0.699475, 0, 6.84147, 0 )
+visible = false
+
+[connection signal="body_entered" from="PointArea" to="." method="_on_PointArea_body_entered"]
