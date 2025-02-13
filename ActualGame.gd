@@ -9,6 +9,7 @@ var roadEmpty = [null, null];
 var distRoads = 8;
 var indRoad = 0;
 var pointsCurrentSession;
+var tutorial = true
 
 func _ready():
 	print(str(get_parent().infoDict["skinGender"]) + " " + get_parent().infoDict["skin"]);
@@ -31,23 +32,26 @@ func _ready():
 
 func _process(_delta):
 	if(get_parent().stopGame == false):
-		if(indRoad == 2 && roadEmpty[1]):
-			remove_child(roadEmpty[0]);
-			remove_child(roadEmpty[1]);
+		if(tutorial == true):
+			pass
+		else:
+			if(indRoad == 2 && roadEmpty[1]):
+				remove_child(roadEmpty[0]);
+				remove_child(roadEmpty[1]);
+				
+				roadEmpty[0].queue_free();
+				roadEmpty[1].queue_free();
+				
+				roadEmpty[0] = null;
+				roadEmpty[1] = null;
 			
-			roadEmpty[0].queue_free();
-			roadEmpty[1].queue_free();
-			
-			roadEmpty[0] = null;
-			roadEmpty[1] = null;
-		
-		if(indRoad > 2):
-			indRoad = 0;
+			if(indRoad > 2):
+				indRoad = 0;
 
-		if(roadArray[indRoad].translation.z + 15 < get_node("KinematicBody").translation.z):
-			roadArray[indRoad].translation.z = distRoads;
-			roadArray[indRoad].get_node("Road#1")._refreshRoad();
-			indRoad += 1;
-			distRoads += 8;
-		
-		get_node("Control/HighScore - RichTextLabel").bbcode_text = "[center]" + str(pointsCurrentSession) + "[/center]";
+			if(roadArray[indRoad].translation.z + 15 < get_node("KinematicBody").translation.z):
+				roadArray[indRoad].translation.z = distRoads;
+				roadArray[indRoad].get_node("Road#1")._refreshRoad();
+				indRoad += 1;
+				distRoads += 8;
+			
+			get_node("Control/HighScore - RichTextLabel").bbcode_text = "[center]" + str(pointsCurrentSession) + "[/center]";

@@ -5,6 +5,7 @@ var side = null;
 func _ready():
 	get_node("AnimationPlayer").play("Gradient");
 	var parentNode = get_parent();
+	parentNode._reload_ads()
 	
 	var file = File.new();
 	if(file.file_exists("user://saveGame.save")):
@@ -53,6 +54,7 @@ func _on_Lives__Panel_mouse_entered():
 				get_node("Main Node - Control/Panel/AnimationPlayer").play("PanelSlide");
 
 func _on_close_AdRequest_pressed():
+	get_parent()._reload_ads()
 	if(!get_node("Main Node - Control/Panel/AnimationPlayer").is_playing()):
 		get_node("Main Node - Control/Panel/AnimationPlayer").play("PanelOut");
 		if(get_parent().infoDict["coins"] >= 1000):
@@ -65,6 +67,7 @@ func _on_close_AdRequest_pressed():
 
 
 func _on_CoinsBar__Panel_mouse_entered():
+	get_parent()._reload_ads()
 	if(!get_node("Main Node - Control/Panel2/AnimationPlayer").is_playing() && get_node("Main Node - Control/Panel2").get_rect().position.x < 12):
 		if(get_node("Main Node - Control/Panel").get_rect().position.x > 12):
 			get_node("Main Node - Control/Panel2/AnimationPlayer").play("PanelSlide");
@@ -85,6 +88,7 @@ func _on_show_AdRequest2_pressed():
 func _on_show_AdRequest_pressed():
 #	MobileAds.load_rewarded();
 	if(get_parent().get_node("yodo1mas").is_rewarded_ad_loaded()):
+		get_parent()._give_reward()
 		get_parent().get_node("yodo1mas").show_rewarded_ad();
 	else:
 		get_parent().get_node("yodo1mas").show_interstitial_ad();
@@ -121,6 +125,7 @@ func _on_Button_Female_pressed():
 func _on_ad_rewarded_pressed():
 #	MobileAds.load_rewarded();
 	if(get_parent().get_node("yodo1mas").is_rewarded_ad_loaded()):
+		get_parent()._give_reward()
 		get_parent().get_node("yodo1mas").show_rewarded_ad();
 	else:
 		get_parent().get_node("yodo1mas").show_interstitial_ad();

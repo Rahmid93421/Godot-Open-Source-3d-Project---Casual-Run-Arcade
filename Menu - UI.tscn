@@ -536,9 +536,6 @@ margin_right = 0.160156
 margin_bottom = 0.229004
 custom_styles/panel = SubResource( 11 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Heart - Sprite" type="Sprite" parent="Main Node - Control/Lives - Panel"]
 position = Vector2( 6.28528, 7.77802 )
@@ -581,9 +578,6 @@ margin_right = -0.0798187
 margin_bottom = 0.229004
 custom_styles/panel = SubResource( 11 )
 script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Coin - Sprite" type="Sprite" parent="Main Node - Control/CoinsBar - Panel"]
 position = Vector2( 4.16391, 7.06143 )
@@ -671,9 +665,6 @@ custom_fonts/font = SubResource( 19 )
 custom_styles/pressed = SubResource( 17 )
 custom_styles/normal = SubResource( 18 )
 text = "AD"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button2" type="Button" parent="Main Node - Control/Panel"]
 anchor_left = 1.0
@@ -899,9 +890,6 @@ custom_fonts/normal_font = SubResource( 16 )
 bbcode_enabled = true
 bbcode_text = "[center]Hello there and welcome to Casual Run! Please choose your gender[/center]"
 text = "Hello there and welcome to Casual Run! Please choose your gender"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="Main Node - Control/Panel4"]
 anchor_top = 1.0
@@ -954,10 +942,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -783.0
-margin_top = -399.0
-margin_right = -445.994
-margin_bottom = -145.0
+margin_left = -680.0
+margin_top = -127.0
+margin_right = -342.994
+margin_bottom = 127.0
 custom_styles/panel = SubResource( 30 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1005,9 +993,6 @@ custom_fonts/font = SubResource( 34 )
 custom_styles/pressed = SubResource( 32 )
 custom_styles/normal = SubResource( 33 )
 text = "YES"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button2" type="Button" parent="Main Node - Control/Panel5"]
 anchor_left = 1.0

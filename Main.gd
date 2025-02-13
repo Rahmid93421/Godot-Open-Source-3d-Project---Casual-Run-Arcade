@@ -22,7 +22,13 @@ func _ready():
 	get_node("AudioStreamPlayer").autoplay = true;
 	get_node("AudioStreamPlayer").play();
 	
-	$yodo1mas.show_banner_ad_with_align($yodo1mas.BannerAlign.BANNER_RIGHT | $yodo1mas.BannerAlign.BANNER_BOTTOM)
+	$yodo1mas.init()
+	
+	$yodo1mas.load_banner_ad("AdaptiveBanner", "RIGHT", "BOTTOM")
+	$yodo1mas.load_rewarded_ad()
+	$yodo1mas.load_interstitial_ads()
+	
+#	$yodo1mas.show_banner_ad_with_align($yodo1mas.BannerAlign.BANNER_RIGHT | $yodo1mas.BannerAlign.BANNER_BOTTOM)
 	
 #	print(str(get_instance_id()));
 
@@ -41,6 +47,11 @@ func _ready():
 #func _on_MobileAds_interstitial_loaded():
 #	pass
 #	MobileAds.show_interstitial();
+
+func _reload_ads():
+	$yodo1mas.load_banner_ad("AdaptiveBanner", "RIGHT", "BOTTOM")
+	$yodo1mas.load_rewarded_ad()
+	$yodo1mas.load_interstitial_ads()
 
 func _saveToFile():
 	var file = File.new();
@@ -187,6 +198,12 @@ func _on_yodo1mas_interstitial_ad_closed():
 			infoDict["coins"] += 50;
 	_saveToFile();
 
+func _give_reward():
+	var value = get_node("Menu - UI/Main Node - Control/CoinsBar - Panel/Value - Sprite").text;
+	get_node("Menu - UI/Main Node - Control/CoinsBar - Panel/Value - Sprite").text = str(int(value) + 50);
+	infoDict["coins"] = int(get_node("Menu - UI/Main Node - Control/CoinsBar - Panel/Value - Sprite").text)
+	side = null;
+	_saveToFile();
 
 func _on_yodo1mas_rewarded_ad_earned():
 	match side:
@@ -203,3 +220,7 @@ func _on_yodo1mas_rewarded_ad_earned():
 		null:
 			infoDict["coins"] += 50;
 	_saveToFile();
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if(anim_name == "FadeOut"):
+		_reload_ads()

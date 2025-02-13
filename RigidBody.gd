@@ -37,7 +37,7 @@ func _ready():
 	timer.set_one_shot(false);
 
 func _physics_process(delta):
-	if(get_parent().get_parent().stopGame == false):
+	if(get_parent().get_parent().stopGame == false && get_parent().tutorial == false):
 		get_parent().get_node("Ground").translation.z = translation.z;
 		
 		velocity += gravity * delta;
